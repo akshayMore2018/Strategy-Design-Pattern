@@ -1,0 +1,5 @@
+
+interface Mechanics
+{
+    void run();
+}
