@@ -1,0 +1,21 @@
+class BehaviorHover implements Mechanics
+{
+
+    private float MAX_DEVIATION, hoverAngle, angularVelocity;
+
+    BehaviorHover(float MAX_DEVIATION, float angularVelocity)
+    {
+        this.MAX_DEVIATION = MAX_DEVIATION;
+        this.hoverAngle = 0;
+        this.angularVelocity = angularVelocity;
+        Coin.instance.setOwner(null);
+    }
+
+    @Override
+    public void run()
+    {
+        Coin.instance.position.y = Coin.instance.position.y + MAX_DEVIATION * Utility.getSin(hoverAngle);
+        hoverAngle += angularVelocity;
+        if (hoverAngle >= 360)
+            hoverAngle = 0;
+    }
