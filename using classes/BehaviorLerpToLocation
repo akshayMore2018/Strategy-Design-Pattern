@@ -1,0 +1,17 @@
+class BehaviorLerpToLocation implements Mechanics
+{
+
+    private Point targetPos;
+
+    BehaviorLerpToLocation(Point Location)
+    {
+        this.targetPos = new Point(Location);
+    }
+
+    @Override
+    public void run()
+    {
+        Coin.instance.position.x = Utility.lerp(Coin.instance.position.x, targetPos.x, 0.02f);
+        Coin.instance.position.y = Utility.lerp(Coin.instance.position.y, targetPos.y, 0.02f);
+    }
+}
